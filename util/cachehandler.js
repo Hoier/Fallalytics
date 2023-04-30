@@ -128,9 +128,7 @@ async function getRecordsFromDb(callback, col, days, show, round){
 }
 
 async function getShowsExternal(callback){
-	//Fuck yes, people are nice
 	axios.get(fallGuysDBURL, axiosconfig).then(async function (response) {
-		// handle success
 		if(response && response.data && response.data.data && response.data.data.shows){
 			var success = await myCache.set("AllShows", response.data.data.shows);
 			callback(response.data.data.shows);
