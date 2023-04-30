@@ -58,6 +58,7 @@ web_modules/
 app.yaml
 api/
 routers/api.js
+.gcloudignore
 
 # Optional stylelint cache
 .stylelintcache
