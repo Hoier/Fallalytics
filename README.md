@@ -9,7 +9,7 @@ Fallalytics is built on Node > v18, with Express and the Pug renderer. The data 
 
 
 
-![App Screenshot](https://fallalytics.com/images/screenshots/2023-05-01.PNG)
+![website Screenshot](public/images/screenshots/2023-05-01.PNG)
 
 
 ## Installation
