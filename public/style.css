@@ -1,0 +1,401 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:800|Merriweather+Sans|Share+Tech+Mono");
+
+:root {
+  --ui-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 4px 5px 0 rgba(0, 0, 0, 0.06), 0 1px 10px 0 rgba(0, 0, 0, 0.08);
+  fill: rgba(0, 0, 0, 0.54);
+  --ui-shadow-border: 1px solid rgba(0, 0, 0, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+  color: #2a3747;
+}
+h3{
+	
+  display:inline-block;
+  float: left;
+}
+h1 {
+  font-size: 40px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+.View {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  height: 100%;
+  width: 100%;
+
+  padding: 20px;
+
+  background-size: cover;
+
+  font-family: "Merriweather Sans", sans-serif;
+}
+canvas{
+	cursor: url("/images/icons/favicon-32x32.png") 16 16, auto;
+	max-height: 550px;
+}
+.infoBlock{
+	display: inline-block;
+	float: left;
+	margin: 15px;
+}
+
+
+.btn-grad {background-image: linear-gradient(to right, #4A287C 0%, #20A2F4  51%, #4A287C  100%)}
+.btn-grad {
+   margin: 10px;
+   padding: 15px 45px;
+   text-align: center;
+   text-transform: uppercase;
+       justify-content: center;
+	       font-family: "Merriweather Sans", sans-serif;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;
+       font-size: 16px;
+	font-weight: bold;   
+   box-shadow: 0 0 20px #eee;
+   border-radius: 10px;
+   display: inline-block;
+ }
+
+ .btn-grad:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }
+         
+.Banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+  border-radius: 5px;
+
+  overflow: hidden;
+  background: white;
+  padding: 15px;
+
+  font-family: "Share Tech Mono", monospace;
+
+  border-bottom: var(--ui-shadow-border);
+  box-shadow: var(--ui-shadow);
+}
+
+.Message {
+  background: white;
+  padding: 15px;
+  border-bottom: var(--ui-shadow-border);
+  border-radius: 5px;
+  box-shadow: var(--ui-shadow);
+  width:100%;
+  max-height: 80%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.centered{
+	margin: 0 auto;
+}
+
+.Message > .Title {
+  padding-bottom: 20px;
+  display: inline-block;
+}
+
+.Message > .Details {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5em;
+}
+.canvasContainer2{
+	display:block;
+}
+.Message2{
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  background: white;
+  border: none;
+  width: 129px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+
+  text-transform: capitalize;
+
+  border-bottom: var(--ui-shadow-border);
+  box-shadow: var(--ui-shadow);
+}
+
+.NavButtons {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px;
+}
+.MessagesFlex {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+.hidden {
+	display:none;
+}
+.canvasContainer{
+	width: 1300px;
+	height: 500px;
+}
+.NavButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	
+  height: 40px;
+  width: 100px;
+  margin: 5px;
+  background: #7a0dbe;
+  border: none;
+
+  border-radius: 5px;
+
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+
+  text-transform: capitalize;
+
+  border-bottom: var(--ui-shadow-border);
+  box-shadow: var(--ui-shadow);
+}
+.NavButton2 {
+  display: inline-block;
+  float: left;
+  justify-content: center;	
+  height: 35px;
+  min-width: 35px;
+  margin: 3px;
+  background: #ff0000;
+  border: none;
+
+  border-radius: 5px;
+
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+
+  text-transform: capitalize;
+
+  border-bottom: var(--ui-shadow-border);
+  box-shadow: var(--ui-shadow);
+}
+.WelcomeView {
+	background: url("images/backgrounds/pattern-background-2880x1620-ea437687328f.webp") left bottom;
+	background-size: cover;
+}
+.enabled {
+	background: #008567;
+}
+.toggleLabel{
+	padding: 0 2px 0 0;
+	font-size: 14px;
+	display: inline-block;
+	float: left;
+}
+.toggleContainer{
+	float: left;
+	display: inline-block;
+	margin: 5px;
+}
+.dot {
+  height: 20px;
+  width: 20px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 3px;
+}
+.green{
+	background: green;
+}
+.red{
+	background: red;
+}
+.roundOuter{
+	padding: 5px;
+}
+.roundInner{
+	width:100%;
+	height:100%;
+	text-align: center;
+	position:relative;
+	border: 1px solid black;
+	border-radius: 3px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(15px);
+  -ms-transform: translateX(15px);
+  transform: translateX(15px);
+}
+.bottomborder{
+	border-bottom: solid 1px #E0E0E0;
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 12px;
+}
+.mobileList{
+	display:none;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+a, a:hover, a:focus, a:active {
+     text-decoration: none !important;
+     color: inherit !important;
+}
+.centertext{
+	vertical-align: middle;
+	text-align: center;
+	line-height:40px;
+	text-overflow: clip;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.roundType{
+	border-radius: 20px;
+	color: #FFFFFF;
+	text-align: center;
+	max-width: 100px;
+}
+.Team{
+	background: rgb(245,83,3);
+}
+.Survival{
+	background: rgb(182,27,210);
+}
+.Race{
+	background: rgb(5,224,109);
+}
+.Hunt{
+	background: rgb(48,101,184);
+}
+.Final{
+	background: rgb(249,197,3);
+}
+.Logic{
+	background: rgb(0,153,153);
+}
+.Invisibeans{
+	background: rgb(0,0,0);
+}
+@media only screen and (max-width: 666px) {
+  .NavButton{
+	  font-size: 9px;
+	  width: 100px;
+  }
+  .desktopList{
+	  display:none;
+  }
+  .mobileList{
+	  display: block;
+  }
+}

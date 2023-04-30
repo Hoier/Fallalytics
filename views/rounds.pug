@@ -1,0 +1,54 @@
+extends layout
+
+block layout-content
+	div.View.WelcomeView
+		h1.Banner #{title}
+		div.Message
+			div(style="display: inline-block; width:100%")
+				each set in filters
+					each option in set.options
+							div.toggleContainer
+								span.toggleLabel= set.label +" "+ option
+								label.switch
+									input(type="checkbox", id=set.dataField + option, onclick="toggleRounds('"+set.dataField + option+"')", checked="true")
+									span.slider.round
+				br
+			div.row
+				each round in rounds
+					div.col-lg-2.col-md-3.col-sm-6.roundOuter(class="type"+round.type+" season"+round.season)
+						a(href="/rounds/"+round.round)
+							div.roundInner
+								span #{round.name}
+								br
+								img(src=round.icon)
+								br
+								span(style="font-size:10px; left: 0%; width: 50%;bottom:0%;position:absolute;color:white;", class=round.type) #{round.type}
+								span(style="font-size:10px; right: 0%; bottom:0%; width: 50%;position:absolute;") Season #{round.season}
+								br
+								
+		div
+		div
+		div.NavButtons
+			a(href="/")
+				div.NavButton Go Back
+		script.
+			function toggleRounds(class1){
+				console.log(document.getElementById(class1).checked);
+				if(!document.getElementById(class1).checked){
+					var list = document.getElementsByClassName(class1);
+					for (var x = 0; x < list.length; x++){
+						list[x].style.display = "none";
+					}
+				}else{
+					var list = document.getElementsByClassName(class1);
+					for (var x = 0; x < list.length; x++){
+						list[x].style.display = "inline-block";
+					}
+				}
+			}
+			function resetList(){
+				var list = document.getElementsByClassName("roundBlock");
+				for (var x = 0; x < list.length; x++){
+					list[x].style.display = "inline-block";
+				}
+			}

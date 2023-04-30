@@ -1,0 +1,44 @@
+extends graph
+
+block graph-code
+	script.
+		const ctx = document.getElementById('myChart').getContext('2d');
+		const myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {},
+			options: {
+				responsive: true,
+				scales: {
+					x: {
+						stacked: true,
+						responsive: true,
+						display: 'auto'
+					},
+					y: {
+						beginAtZero: true,
+						responsive: true,
+						stacked: true
+					}
+				},
+				plugins: {
+					legend:{
+						display:false
+					},
+					datalabels: {
+						anchor: 'end',
+						align: 'start',
+						color: 'white',
+						display: function(context) {
+							return context.dataset.data[context.dataIndex].y > 1;
+						},
+						font: {
+							weight: 'bold'
+						},
+						formatter: chartFormatter
+					}
+				}
+			}
+		});
+		function chartFormatter (obj){
+			return obj.y;
+		}

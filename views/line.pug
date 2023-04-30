@@ -1,0 +1,38 @@
+extends meta
+
+block graph-code
+	script.
+		const ctx = document.getElementById('myChart').getContext('2d');
+		const myChart = new Chart(ctx, {
+			type: 'line',
+			data: {},
+			options: {
+				responsive: true,
+				scales: {
+					x: {
+						display: true
+					},
+					y: {
+						display: true,
+						beginAtZero: true
+					}
+				},
+				interaction: {
+					intersect: false,
+				},
+				plugins: {
+					datalabels:{
+						display:false
+					}
+				},
+				tooltips: {
+					enabled: true,
+					mode: 'single',
+					callbacks: {
+						label: function(tooltipItems, data) { 
+							return tooltipItems.yLabel + '%';
+						}
+					}
+				}
+			}
+		});

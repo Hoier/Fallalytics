@@ -1,0 +1,30 @@
+extends layout
+
+block layout-content
+	div.View.WelcomeView
+		h1.Banner Update your tracker
+		div.Message
+			p You have been directed here to update your tracker. That might be because of new rounds in fall guys, or new features on this website, that needs to be logged by the new tracker. 
+			p Download the zip here: <a style="color:#0d6efd !important;" href="https://fallalytics.com/downloads/FallGuysStats_Fallalytics_Edition_v9.zip"> https://fallalytics.com/downloads/FallGuysStats_Fallalytics_Edition_v9.zip </a> and replace the exe in your current tracker folder with the new one from the zip.
+			h4 Patch notes v9
+			ul
+				li Mediatonic added timecodes back in the log, and Fallalytics tracker has been updated to commit: acef347c1f5b9f2f5542b5427b72cf4cb0835921 from <a style="color:#0d6efd !important;" href="https://github.com/ShootMe/FallGuysStats/">ShootMe's Tracker</a>
+			h4 Patch notes v8
+			ul
+				li The tracker broke with a FG update, and this implements a fix developed by ThreesFG: <a style="color:#0d6efd !important;" href="https://github.com/ThreesFG/FallGuysStats">https://github.com/ThreesFG/FallGuysStats</a> Latest commit as of update: 317215d 
+				li A huge shoutout to <a style="color:#0d6efd !important;" href="https://twitter.com/ThreesFG">ThreesFG</a> for helping out!
+			h4 Patch notes v7
+			ul
+				li Added functionality from <a style="color:#0d6efd !important;" href="https://github.com/ShootMe/FallGuysStats/">ShootMe's Tracker</a> commits: "Season 8", "Fix season filter" and "Leading Light Fix"
+				li New rounds will be saved and logged correctly
+			h4 Patch notes v6
+			ul
+				li Added feature for notifying users when an update to the tracker is available.
+				li Removed logging of rounds played when the tracker is closed. This is what has caused wrong data to appear on show summary.
+				li Removed the update and help buttons and added a fallalytics button that takes you to Fallalytics.
+			br
+			span 
+				strong Site is not affiliated with Epic, Mediatonic or Fall Guys. All components of this service follows the Fall Guys EULA
+		div.NavButtons
+			a(href="/")
+				div.NavButton Go Back

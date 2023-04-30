@@ -1,0 +1,50 @@
+extends layout
+
+block layout-content
+	div.View.WelcomeView
+		h1.Banner Leaderboard
+		div.Message
+			div.Title
+				h4 Top Data Reporters
+				p Please consider downloading our tracker to contribute to the dataset: <a href="https://fallalytics.com/downloads/FallGuysStats_Fallalytics_Edition_v9.zip" style="color:blue !important;">FallGuysStats_Fallalytics_Edition_v9.zip</a>
+				p To appear in the list, enable the option "Add your username to the data" in the fallalytics tracker
+				p The score is calculated as follows: 1p for any round, 2p for any round of Solo Show, 10 points for any Solo Show Final.
+			div.desktopList
+				strong
+					div.row.bottomborder
+						div.col-1.centertext #
+						div.col-3.centertext Username
+						div.col-1.centertext Score
+						div.col-1.centertext Rounds
+						div.col-1.centertext Solo Show
+						div.col-1.centertext Solo Show Finals
+						div.col-2.centertext Most Played Show
+						div.col-2.centertext Most Played Round
+				each player in players
+					div.row.bottomborder(style="max-height:41px; overflow:hidden;")
+						div.col-1.centertext(style='max-height:41px; color:#ffffff; text-shadow: 2px 2px 3px #000000; background:url('+player.medal+') no-repeat;background-size: contain;background-position: center;')
+							Strong #{player.position}
+						div.col-3.centertext #{player.cleanname}
+						div.col-1.centertext #{player.count}
+						div.col-1.centertext #{player.rounds}
+						div.col-1.centertext #{player.solo}
+						div.col-1.centertext #{player.solofinal}
+						div.col-2.centertext #{player.mostplayedshow}
+						div.col-2.centertext #{player.mostplayedround}
+			div.mobileList
+				strong
+					div.row.bottomborder
+						div.col-1.centertext #
+						div.col-5.centertext Username
+						div.col-3.centertext Score
+						div.col-3.centertext Rounds
+				each player in players
+					div.row.bottomborder(style="max-height:41px; overflow:hidden;")
+						div.col-1.centertext(style='max-height:41px; color:#ffffff; text-shadow: 2px 2px 3px #000000; background:url('+player.medal+') no-repeat;background-size: contain;background-position: center;')
+							Strong #{player.position}
+						div.col-5.centertext #{player.cleanname}
+						div.col-3.centertext #{player.count}
+						div.col-3.centertext #{player.rounds}
+		div.NavButtons
+			a(href="/")
+				div.NavButton Go Back

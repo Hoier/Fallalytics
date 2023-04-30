@@ -1,0 +1,85 @@
+extends layout
+
+block layout-content
+	div.View.WelcomeView
+		h1.Banner Fallalytics
+		div.MessagesFlex
+			div.Message2 Status: 
+				if botStatus
+					span.dot.green
+				else
+					span.dot.red
+			div.Message2 Episodes: #{amount}
+			div.Message2 
+				a(href="/about") About
+		div.Message
+			div.Title
+				h4 Round distribution last 7 days for Solo Show
+				- if (amount < 200)
+					p Please consider downloading our tracker to contribute to the dataset: <a href="https://fallalytics.com/downloads/FallGuysStats_Fallalytics_Edition_v9.zip" style="color:blue !important;">FallGuysStats_Fallalytics_Edition_v9.zip</a>
+			div.desktopList
+				strong
+					div.row.bottomborder
+						div.col-5
+							div.row
+								div.col-2.centertext #
+								div.col-3.centertext Icon
+								div.col-7.centertext Name
+						div.col-7
+							div.row
+								div.col-4.centertext Type
+								div.col-2.centertext Season
+								div.col-3.centertext Chance
+								div.col-3.centertext Details
+				each round in rounds
+					div.row.bottomborder
+						div.col-5
+							div.row
+								div.col-2.centertext #{round.position}
+								div.col-3.centertext
+									img(src=round.icon, width="40px", height="40px")
+								div.col-7.centertext #{round.name}
+						div.col-7
+							div.row
+								div.col-4.centertext
+									div(class="roundType centertext "+round.type, style="margin: 0 auto;") #{round.type}
+								div.col-2.centertext #{round.season}
+								div.col-3.centertext #{round.percentage}%
+								div.col-3.centertext 
+									a(href="/rounds/"+round.round)
+										button.btn.btn-outline-secondary
+											svg(xmlns="http://www.w3.org/2000/svg", width="24", height="24", fill="currentColor", class="bi bi-clipboard-pulse", viewBox="0 0 16 16")
+												path(fill-rule="evenodd", d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z")
+			div.mobileList
+				strong
+					div.row.bottomborder
+						div.col-9
+							div.row
+								div.col-2.centertext #
+								div.col-3.centertext Icon
+								div.col-7.centertext Name
+						div.col-3.centertext Chance
+				each round in rounds
+					a(href="/rounds/"+round.round)
+						div.row.bottomborder
+							div.col-9
+								div.row
+									div.col-2.centertext #{round.position}
+									div.col-3.centertext
+										img(src=round.icon, width="40px", height="40px")
+									div.col-7.centertext #{round.name}
+							div.col-3.centertext #{round.percentage}%
+			br
+			a(href="/meta")
+				button.btn-grad Meta
+			a(href="/roundsall")
+				button.btn-grad Rounds Summary
+			a(href="/rounds")
+				button.btn-grad Rounds Explorer
+			a(href="/shows/main_show")
+				button.btn-grad Show Breakdown
+			br
+			span 
+				strong Site is not affiliated with Epic, Mediatonic or Fall Guys. All components of this service follows the Fall Guys EULA
+		div
+		div

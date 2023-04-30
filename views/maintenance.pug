@@ -1,0 +1,27 @@
+extends layout
+
+block layout-content
+	div.View.WelcomeView
+		h1.Banner Fallalytics
+		div.MessagesFlex
+			div.Message2 Status: 
+				if botStatus
+					span.dot.green
+				else
+					span.dot.red
+			div.Message2 Rounds: #{amount}
+			div.Message2 
+				a(href="/about") About
+		div.Message
+			div.Title
+				h1 Were sorting stuff out!
+			p As most of you know, with FFAS1, we lost our dear bot to SBMM. So I have made a fork of <a href="https://github.com/ShootMe/FallGuysStats">Shootme/FallGuysStats</a> and added optional data reporting, so YOU can help me gather the data that is displayed on this site. More info will come.  
+			p Check in with our Twitter for updates. 
+			p Much love ❤ - The Fallalytics teams
+			a(href="//twitter.com/fallalytics")
+				button.btn-grad Twitter
+			br
+			span 
+				strong Site is not affiliated with Epic, Mediatonic or Fall Guys. All components of this service follows the Fall Guys EULA
+		div
+		div

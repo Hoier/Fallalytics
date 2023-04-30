@@ -1,0 +1,28 @@
+{
+  "name": "fallstats",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "dev": "nodemon ./index.js",
+    "ui": "browser-sync start --config bs-config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.27.7",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "cookie-consent-js": "^1.6.7",
+    "express": "^4.17.2",
+    "mongodb": "^4.3.1",
+    "node-cache": "^5.1.2",
+    "node-fetch": "^3.2.10",
+    "pug": "^3.0.2"
+  }
+}

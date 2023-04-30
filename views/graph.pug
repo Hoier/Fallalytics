@@ -1,0 +1,37 @@
+extends layout
+
+block layout-content
+	div.View.WelcomeView
+		h1.Banner #{title}		
+		div.Message(id="mainContent")
+			div.Title
+				h3 #{graphHeader}
+				each button in buttons
+					a(href=button.href)
+						button(class=button.classes) #{button.name}
+				br
+				br
+				each set in filters
+					div(style="display:inline:block; float:left; margin-right: 10px;")
+						p.centertext(style="display:inline-block; float:left;") #{set.groupLabel}:
+						each option in set.options
+							button(onClick="updateChartFilter("+set.index+", '"+set.dataField+"', '"+option+"')", id="filter"+set.index+"option"+option, style="display:inline-block;", class="disabled NavButton2 tinyButtonOverride")= option
+				Button(onClick="enableAll()", id="datasetButtonAll", class="disabled NavButton2", style="display:inline-block; float: left;")= "Toggle All"
+			span.Details
+				div.canvasContainer2
+					canvas(id="myChart")
+		div.NavButtons
+			a(href="/")
+				div.NavButton Go Back
+	block graph-code
+	script.
+		var filters = !{JSON.stringify(filters)};
+		if("#{centered}" == "true"){
+			document.getElementById("mainContent").classList.add("centered");
+		}
+		var isCustomQuickSorted = false;
+		if("#{customQuickSort}" == "true"){
+			isCustomQuickSorted = true;
+		}
+		const dataClean = !{JSON.stringify(data)};
+	script(src="/scripts/chart.js")

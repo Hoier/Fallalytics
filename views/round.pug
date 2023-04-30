@@ -1,0 +1,62 @@
+extends layout
+
+block layout-content
+	div.View.WelcomeView
+		h1.Banner #{title}
+		div.Message
+			div(width="100%", style="display:inline-block;")
+				div.infoBlock Name: #{round.name} 
+				div.infoBlock Log entries last 7 days: #{round.count} 
+				div.infoBlock Type: #{round.type} 
+				div.infoBlock Season: #{round.season}
+				div(style="display:inline-block;") 
+					img(src=round.icon)
+			h4 Log entries per day:
+			div.canvasContainer2
+				canvas(id="myChart")
+		div
+		div
+		div.NavButtons
+			a(href="/rounds/")
+				div.NavButton Go Back
+		script.
+			const ctx = document.getElementById('myChart').getContext('2d');
+			const myChart = new Chart(ctx, {
+				type: 'bar',
+				data: !{JSON.stringify(data)},
+				options: {
+					responsive: true,
+					scales: {
+						x: {
+							stacked: true,
+							responsive: true,
+							display: 'auto'
+						},
+						y: {
+							beginAtZero: true,
+							responsive: true,
+							stacked: true
+						}
+					},
+					plugins: {
+						legend:{
+							display:false
+						},
+						datalabels: {
+							anchor: 'end',
+							align: 'start',
+							color: 'white',
+							display: function(context) {
+								return context.dataset.data[context.dataIndex].y > 1;
+							},
+							font: {
+								weight: 'bold'
+							},
+							formatter: chartFormatter
+						}
+					}
+				}
+			});
+			function chartFormatter (obj){
+				return obj.y;
+			}

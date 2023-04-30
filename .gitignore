@@ -54,6 +54,11 @@ web_modules/
 # Optional eslint cache
 .eslintcache
 
+# repo spessific excludes
+app.yaml
+api/
+routers/api.js
+
 # Optional stylelint cache
 .stylelintcache
 

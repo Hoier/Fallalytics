@@ -1,0 +1,38 @@
+extends layout
+
+block layout-content
+	div.View.WelcomeView
+		h1.Banner #{title}		
+		div.Message(id="mainContent")
+			div.dropdown(style="display:inline-block;")
+				button(type="button", style="margin-right:5px;", class="btn btn-primary dropdown-toggle", id="dropdownMenuButton1", data-bs-toggle="dropdown", aria-expanded="false") Filters
+				ul.dropdown-menu(aria-labelledby="dropdownMenuButton1")
+					li
+						a.dropdown-item(id="filterAll",onclick="enableAll()") All
+					li
+						a.dropdown-item.active(id="filterNone",onclick="disableAll()") None
+					li
+						a.dropdown-item(id="filterTop5",onclick="top5()") Top 5
+					li
+						a.dropdown-item(id="filterBottom5",onclick="bottom5()") Bottom 5
+			each set in filters
+				div.dropdown(style="display:inline-block;")
+					button(type="button",style="margin-right:5px;", class="btn btn-primary dropdown-toggle", id="dropdownMenuButton2", data-bs-toggle="dropdown", aria-expanded="false")= set.groupLabel
+					ul.dropdown-menu(aria-labelledby="dropdownMenuButton2")
+						each option in set.options
+							li
+								a.dropdown-item(id="filter"+set.index+"option"+option, onClick="updateChartFilter("+set.index+", '"+set.dataField+"', '"+option+"')")= option
+			div(style="display:inline-block;")
+				span Current Filter: 
+				span(id="currentFilter") None
+			span.Details
+				div.canvasContainer2
+					canvas(id="myChart")
+		div.NavButtons
+			a(href="/")
+				div.NavButton Go Back
+	block graph-code
+	script.
+		const dataClean = !{JSON.stringify(data)};
+		const filters = !{JSON.stringify(filters)};
+	script(src="/scripts/line.js")
