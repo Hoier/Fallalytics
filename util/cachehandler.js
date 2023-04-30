@@ -29,7 +29,6 @@ if(process.env.DEPLOYMENT && process.env.DEPLOYMENT == "prod"){
 	}
 }
 
-
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 const connection = client.connect();
 const connect = connection;
