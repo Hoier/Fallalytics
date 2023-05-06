@@ -17,7 +17,7 @@ module.exports = (req, res) =>{
 
   	cacheHandler.getRecords(function(array){
 		let data = {};
-		let filters = Filters.default;
+		let filters = Filters.default();
 		
 		dataset = {};
 		dataset.label = "";

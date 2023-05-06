@@ -29,10 +29,14 @@ To run Fallalytics locally use the dev script to automatically rebuild/start whe
 ```bash
   npm run dev
 ```
+You can now open you browser at localhost:8000 to view the UI.
+
 If you want your browser to automatically update on changes, open a seperate terminal after running the dev script, and run:
 ```bash
   npm run ui
 ```
+Running the command above should automatically open a browser at localhost:3000 which will automatically refresh on new builds.
+
 If you have any issues with building, you might not have set up MongoDB correctly.
 ## Environment Variables
 

@@ -13,6 +13,6 @@ module.exports = (req, res) => {
 		roundObject.round = round;
 		rounds.push(roundObject);
 	}
-	let filters = Filters.default;
+	let filters = Filters.default();
 	res.render("rounds", { title:"Rounds", rounds: rounds, filters: filters});
 }

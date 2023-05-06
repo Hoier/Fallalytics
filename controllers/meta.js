@@ -67,12 +67,7 @@ module.exports = (req, res) => {
 				datasets[y].data[z].y = (datasets[y].data[z].y / countByDate.data[z].y) * 100;
 			}
 		}
-		let filters = Filters.default;
-
-		//quickfix since datasets cant have "type"¨
-		if(filters.findIndex(element => element.dataField == "type") > -1){
-			filters.find(element => element.dataField == "type").dataField = "roundType";
-		}
+		let filters = Filters.meta();
 		
 
 		res.render("line", { graphHeader: "Meta", title: "Main Show Meta", data: { datasets: datasets }, buttons: [], filters: filters});
